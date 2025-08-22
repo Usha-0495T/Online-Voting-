@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Vote - Voting System{% endblock %}
+{% block content %}
+<h2>Cast Your Vote</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div>
+        {% for subfield in form.candidate %}
+            <div>{{ subfield() }} {{ subfield.label.text }}</div>
+        {% endfor %}
+    </div>
+    <button type="submit">Vote</button>
+</form>
+{% endblock %}

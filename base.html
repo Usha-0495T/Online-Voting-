@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Voting System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+<header>
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo" />
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('vote') }}">Vote</a>
+            <a href="{{ url_for('results') }}">Results</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="error">
+            {% for msg in messages %}
+                <li>{{ msg }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Register - Voting System{% endblock %}
+{% block content %}
+<h2>Register</h2>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.username.label }}<br>
+        {{ form.username() }}
+    </div>
+    <div>
+        {{ form.password.label }}<br>
+        {{ form.password() }}
+    </div>
+    <div>
+        {{ form.confirm.label }}<br>
+        {{ form.confirm() }}
+    </div>
+    <div>
+        {{ form.aadhar_number.label }}<br>
+        {{ form.aadhar_number(maxlength=12, pattern="[0-9]{12}", title="Enter exactly 12 digits", inputmode="numeric", oninput="this.value = this.value.replace(/[^0-9]/g,'')") }}
+    </div>
+    <div>
+        {{ form.document.label }}<br>
+        {{ form.document() }}
+    </div>
+    <button type="submit">Register</button>
+</form>
+{% endblock %}
