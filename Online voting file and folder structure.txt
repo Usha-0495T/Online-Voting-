@@ -1,0 +1,19 @@
+voting_website/
+├── app.py
+├── requirements.txt
+├── static/
+│   ├── css/
+│   │   └── styles.css
+│   └── images/
+│       └── logo.png
+├── templates/
+│   ├── base.html
+│   ├── home.html
+│   ├── about.html
+│   ├── contact.html
+│   ├── register.html
+│   ├── login.html
+│   ├── vote.html
+│   └── results.html
+├── uploads/
+└── database.db
